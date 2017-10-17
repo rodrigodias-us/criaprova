@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem 'devise'
 gem 'omniauth'

@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017163044) do
+ActiveRecord::Schema.define(version: 20171017195807) do
+
+  create_table "levels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "levels_matters", id: false, force: :cascade do |t|
+    t.integer "level_id", null: false
+    t.integer "matter_id", null: false
+    t.index ["matter_id", "level_id"], name: "index_levels_matters_on_matter_id_and_level_id", unique: true
+  end
+
+  create_table "matters", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
